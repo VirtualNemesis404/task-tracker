@@ -36,3 +36,12 @@
     padding: 6px;
     width: 210px;
 }
+
+input:focus{
+    outline-color: black;
+}
+
+.taskItem{
+    display: flex;
+    gap: 10px;
+}
