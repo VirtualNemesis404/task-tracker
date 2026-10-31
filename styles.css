@@ -19,7 +19,6 @@
     flex-direction: column;
     gap: 18px;
     justify-content: center;
-    align-items: center;
     background-color: rgb(170, 213, 254);
     box-shadow: 6px 6px 12px 2px rgb(225, 224, 224);
 }
@@ -32,6 +31,9 @@
     color: white;
 }
 
+.task-form{
+    align-self: center;
+}
 .task-form input{
     padding: 6px;
     width: 210px;
@@ -41,7 +43,18 @@ input:focus{
     outline-color: black;
 }
 
+.task-list{
+    align-self: center;
+}
+
+ul{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
 .taskItem{
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }

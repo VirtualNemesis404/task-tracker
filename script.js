@@ -45,6 +45,7 @@ function addTask(event){
 
         if (taskList.querySelector("ul") === null){   
             ul.style.listStyle = "none";
+            taskList.style.alignSelf = "flex-start"
             taskList.appendChild(ul);           
         }
 
