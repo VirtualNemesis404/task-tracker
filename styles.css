@@ -44,7 +44,7 @@ input:focus{
 }
 
 .task-list{
-    align-self: center;
+    text-align: center;
 }
 
 ul{
@@ -57,4 +57,9 @@ ul{
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
+    align-items: center;
+}
+
+.delete-button{
+    padding: 0px 8px;
 }

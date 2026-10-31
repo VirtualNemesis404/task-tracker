@@ -15,6 +15,22 @@ function storeTask(event){
    task = event.target.value;
 }
 
+function deleteTask(event){
+    const element = event.srcElement.parentElement.parentElement
+    element.remove()
+    checkTaskList()
+}
+
+function createDeleteButton(){
+    const button = document.createElement("button")
+    button.className = "delete-button"
+    button.textContent = "x"
+
+    button.addEventListener("click",deleteTask)
+
+    return button
+}
+
 function createTaskItem(task){
 
     const li = document.createElement("li");
@@ -26,8 +42,11 @@ function createTaskItem(task){
     const para = document.createElement("p");
     para.textContent = task
 
+    const deleteButton = createDeleteButton()
+
     taskItem.appendChild(checkBox);
     taskItem.appendChild(para);
+    taskItem.appendChild(deleteButton)
 
     li.appendChild(taskItem);
 
@@ -36,7 +55,15 @@ function createTaskItem(task){
     return li
 }
 
-function addTask(event){
+function checkTaskList(){
+    console.log(ul.hasChildNodes())
+    if (!ul.hasChildNodes()){
+        ul.remove()
+        taskList.textContent = "No Task for the day"
+    }
+}
+
+function addTask(){
 
     if (task){
         if (taskList.textContent === "No Task for the day"){
@@ -45,7 +72,6 @@ function addTask(event){
 
         if (taskList.querySelector("ul") === null){   
             ul.style.listStyle = "none";
-            taskList.style.alignSelf = "flex-start"
             taskList.appendChild(ul);           
         }
 
@@ -61,5 +87,4 @@ const ul = document.createElement("ul");
 
 inputFiled.addEventListener("change",storeTask);
 addButton.addEventListener("click",addTask);
-
-
+ul.addEventListener("change",checkTaskList)
