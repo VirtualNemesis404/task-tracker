@@ -1,5 +1,16 @@
 let task = null;
 
+function isChecked(event){
+    let para = event.srcElement.nextSibling
+    let textStyle = para.style.textDecoration
+    if (textStyle === "line-through"){
+        para.style.textDecoration = "none"
+    }
+    else{
+        para.style.textDecoration = "line-through"
+    }
+}
+
 function storeTask(event){
    task = event.target.value;
 }
@@ -19,6 +30,8 @@ function createTaskItem(task){
     taskItem.appendChild(para);
 
     li.appendChild(taskItem);
+
+    checkBox.addEventListener("change",isChecked)
 
     return li
 }
@@ -47,4 +60,5 @@ const ul = document.createElement("ul");
 
 inputFiled.addEventListener("change",storeTask);
 addButton.addEventListener("click",addTask);
+
 
